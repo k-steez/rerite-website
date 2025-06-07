@@ -12,6 +12,22 @@
     body {
       font-family: 'Inter', sans-serif;
       scroll-behavior: smooth;
+      /* Add faint watermark background */
+      background: 
+        url('logo.png') no-repeat center center fixed,
+        linear-gradient(180deg, #f8fafc 0%, #fff 100%);
+      background-size: 400px auto;
+      opacity: 1;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('logo.png') no-repeat center center;
+      background-size: 400px auto;
+      opacity: 0.07;
+      pointer-events: none;
+      z-index: 0;
     }
     h1, h2, h3 {
       font-family: 'Merriweather', serif;
@@ -66,7 +82,6 @@
   <header class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <a href="#" class="flex items-center space-x-2">
-        <img src="/logo.png" alt="ReRite Logo" class="h-10 w-auto" />
         <span class="text-xl font-bold text-blue-800">ReRite UG</span>
       </a>
       <nav class="space-x-8">
